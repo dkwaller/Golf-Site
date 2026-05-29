@@ -38,7 +38,7 @@ textarea {
       rgba(24, 42, 38, 0.25),
       rgba(24, 42, 38, 0.05)
     ),
-    url("assets/wynn-golf.png") center center / cover no-repeat;
+    url("wynn-golf.png") center center / cover no-repeat;
   display: flex;
   align-items: flex-end;
   padding: 34px clamp(18px, 5vw, 64px);
