@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Golf Score Journal</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-hero">
+      <div class="hero-content">
+        <p class="eyebrow">Round log</p>
+        <h1>Golf Score Journal</h1>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="entry-panel" aria-labelledby="entry-title">
+        <div class="section-heading">
+          <h2 id="entry-title">Add round</h2>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </div>
+
+        <form id="round-form" autocomplete="on">
+          <input type="hidden" id="round-id">
+
+          <label for="course">Course</label>
+          <input
+            id="course"
+            name="course"
+            type="text"
+            list="course-options"
+            placeholder="Course name"
+            required
+          >
+          <datalist id="course-options"></datalist>
+
+          <div class="field-grid">
+            <div>
+              <label for="score">Score</label>
+              <input
+                id="score"
+                name="score"
+                type="number"
+                inputmode="numeric"
+                min="1"
+                max="250"
+                placeholder="86"
+                required
+              >
+            </div>
+            <div>
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+          </div>
+
+          <label for="notes">Notes</label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="7"
+            placeholder="Fairways hit, putting feel, weather, swing thoughts..."
+          ></textarea>
+
+          <div class="button-row">
+            <button id="save-button" class="primary-button" type="submit">Save round</button>
+            <button class="secondary-button" type="reset">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="dashboard" aria-label="Golf score dashboard">
+        <div class="stats-grid" aria-label="Score summary">
+          <article class="stat-card">
+            <span>Average score</span>
+            <strong id="average-score">--</strong>
+          </article>
+          <article class="stat-card">
+            <span>Best score</span>
+            <strong id="best-score">--</strong>
+          </article>
+          <article class="stat-card">
+            <span>Rounds</span>
+            <strong id="round-count">0</strong>
+          </article>
+          <article class="stat-card">
+            <span>Last round</span>
+            <strong id="last-round">--</strong>
+          </article>
+        </div>
+
+        <section class="chart-panel" aria-labelledby="chart-title">
+          <div class="section-heading">
+            <h2 id="chart-title">Score trend</h2>
+            <p class="chart-note">Lower is better</p>
+          </div>
+          <div class="chart-frame">
+            <svg id="score-chart" role="img" aria-labelledby="chart-title chart-desc"></svg>
+            <p id="chart-desc" class="sr-only">A line chart of saved golf scores over time.</p>
+            <p id="chart-empty" class="empty-state">Your score trend will appear after you save a round.</p>
+          </div>
+        </section>
+
+        <section class="rounds-panel" aria-labelledby="rounds-title">
+          <div class="section-heading">
+            <h2 id="rounds-title">Rounds</h2>
+            <div class="heading-actions">
+              <span id="sync-status" class="quiet-pill">Browser only</span>
+              <span id="course-count" class="quiet-pill">0 courses</span>
+            </div>
+          </div>
+          <div id="rounds-empty" class="empty-state">Saved rounds will show up here.</div>
+          <div class="table-wrap">
+            <table id="rounds-table">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Notes</th>
+                  <th class="actions-col" scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="rounds-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="config.js?v=sync"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
