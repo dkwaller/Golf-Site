@@ -34,7 +34,7 @@ textarea {
   min-height: 230px;
   background:
     linear-gradient(90deg, rgba(24, 42, 38, 0.86), rgba(24, 42, 38, 0.34) 58%, rgba(24, 42, 38, 0.1)),
-    url("wynn-golf.png") center 58% / cover no-repeat;
+    url("golf-score-hero.png") center 58% / cover no-repeat;
   display: flex;
   align-items: flex-end;
   padding: 34px clamp(18px, 5vw, 64px);
